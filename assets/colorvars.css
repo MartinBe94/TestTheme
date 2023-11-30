@@ -1,0 +1,11 @@
+:root{
+    --body: #f6f6f6;
+    --content: #fefefe;
+    --font-main: #333;
+
+    --green-main: rgb(100, 180, 90);
+    --green-hover: rgb(120, 210, 110);
+    --green-dark: rgb(70, 160, 50);
+
+    --field-invalid: rgb(255, 80, 80);
+}
