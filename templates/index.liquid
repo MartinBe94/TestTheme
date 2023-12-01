@@ -10,3 +10,82 @@
 {% endfor %}  {% endcomment %}
 {% assign variable = "helloooo" %}
 {{variable }}
+
+{% assign number = "5" %}
+{{number | | plus: number }}
+
+{% assign array_string = "1,2,3,4,5,6" %}
+{% assign array_split = array_string | split: "," %}
+
+
+
+
+<html lang="en">
+  <head>
+      <title>{{ page.title }}</title>
+      <link rel="stylesheet" href="./main.css">
+      <link rel="stylesheet" href="./colorvars.css">
+      {{ content_for_header }}
+  </head>
+  <body>
+      {{ content_for_layout }}
+      <div id="content_wrapper">
+          <span class="head_1">Request a picture lookup</span>
+          <div class="flex-row">
+              <div class="column_left">
+                  <span class="head_2">1. Mark up house location on map</span>
+                  <div class="map-plugin">
+                      <!-- REPLACE WITH ACTUAL MAP PLUGIN AT DEPLOYMENT -->
+                  </div>
+                  <span class="head_2 cursive lighter-gray">Double click on the map to set coordinates</span>
+                  <div class="flex-row">
+                      <input id="latitude" type="text" pattern="-?(\d+(\.\d+)?" placeholder="Latitude" class="coordinate text-input">
+                      <input id="longitude" type="text" pattern="-?(\d+(\.\d+)?" placeholder="Longitude" class="coordinate text-input">
+                  </div>
+              </div>
+              <div class="column_right">
+                  <form id="purchase-form">
+                      <span class="head_2">2. Add your current address</span>
+                      <input type="text" class="street text-input" placeholder="Street address">
+                      <div class="flex-row">
+                          <input type="text" class="zip text-input" placeholder="Zipcode">
+                          <input type="text" class="city text-input" placeholder="City">
+                      </div>
+                      <span class="head_2">3. Choose your preferred art style</span>
+                      <div class="flex-row">
+                          <input type="radio" name="art-style" id="radio_original" value="original">
+                          <label for="radio_original" class="style-option">
+                              <img src="placeholder/url/forImage.jpg" alt="placeholder image url" class="product-sample">
+                              <span class="opt_name">Original photo</span>
+                              <span class="price_tag">{{ product.price }}</span>
+                          </label>
+                          <!-- Repeat the above block for other art styles -->
+                      </div>
+                      <span class="head_2">4. Accept terms</span>
+                      <div class="flex-row">
+                          <div class="flex-item column_base">
+                              <div class="subtotal_card">
+                                  <div class="flex-row subtotal_title">
+                                      <span class="head_3">Lookup fee</span>
+                                      <span class="price_tag">{{ service_price }}</span>
+                                  </div>
+                                  <span class="notation upfront">(10% upfront)</span>
+                                  <p class="card-description">100% payback guarantee if we do not find your picture.</p>
+                              </div>
+                              <!-- Repeat the above block for other subtotal cards -->
+                          </div>
+                          <div class="flex-item column_base">
+                              <div class="flex-row">
+                                  <input type="checkbox" id="agree-to-terms" class="flex-item">
+                                  <label for="agree-to-terms" class="flex-item i-agree">I agree</label>
+                              </div>
+                              <p class="notation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur temporibus eveniet animi natus ipsa doloribus rem, iusto corrupti repellat nihil in, ducimus, dicta ex dolores! Ut totam aliquam nam culpa.</p>
+                              <button type="submit" class="place-order">PLACE ORDER</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </body>
+  </html>
